@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Swift
+Package.resolved
+.build
+
+# Latex
+*.log
+*.out
+*.aux
