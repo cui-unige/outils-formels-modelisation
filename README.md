@@ -1,30 +1,30 @@
 Outils formels de modelisation @ University of Geneva
-** UNDER MODIFICATION
-This repository contains important information about this course. Do not forget to watch it as it will allow us to send notifications for events, such as new exercises, homework, slides or fixes.
+
+Ce document contient des informations importantes concernant ce cours. Les règles concernant le fonctionnement du cours, des exercices et des travaux notés sont indiqués.
 
 Important Information and Links
 
-Page on Moodle
-Page on GitHub
-Courses are Thursday 10:15 - 12:00
-Exercises are Friday 12:15 - 14:00
-Environment
+Page sur GitHub
+Les cours ont lieux le mardi de 10:15 - 12:00
+Les exercises le vendredi  12:15 - 14:00
 
-This course requires the following mandatory environment. We have taken great care to make it as simple as possible.
 
-Moodle Check that you are registered in the "Outils Formels de modelisation" classroom; we will not use it afterwards.
-GitHub: a source code hosting platform that we will for the exercises and homework. Create an account, and do not forget to fill your profile with your full name and your University email address. Ask GitHub for a Student Pack to obtain free private repositories.
-MacOS High Sierra or Ubuntu 16.04 LTS 64bits, in a virtual machine, using for instance VirtualBox, or directly with a dual boot.
+Environnement de travail
+
+Ce cours nécessite l'environnement suivant:
+
+GitHub:
+
+(a source code hosting platform that we will for the exercises and homework. Create an account, and do not forget to fill your profile with your full name and your University email address. Ask GitHub for a Student Pack to obtain free private repositories.
+MacOS High Sierra or Ubuntu 16.04 LTS 64bits, in a virtual machine, using for instance VirtualBox, or directly with a dual boot.)
 
 Watch the course page to get notifications about the course.
 
-Fork it into your account.
+Il faut le 'Fork' dans votre propre compte.
 
-Make your fork private
+Rendez votre 'Fork' privé.
 
-Add as collaborators the users: ....
-
-Rules
+Règles:
 
 You must do your homework in your private fork of the course repository.
 You must fill your full name in your GitHub profile.
