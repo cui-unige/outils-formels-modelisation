@@ -20,7 +20,7 @@ MacOS High Sierra or Ubuntu 16.04 LTS 64bits, in a virtual machine, using for in
 
 Watch the course page to get notifications about the course.
 
-Il faut le 'Fork' dans votre propre compte.
+Il faut faire une copie de la page de cours ('Fork') dans votre propre compte.
 
 Rendez votre 'Fork' privé.
 
@@ -30,7 +30,7 @@ You must do your homework in your private fork of the course repository.
 You must fill your full name in your GitHub profile.
 If for any reason you have trouble with the deadline, contact your teacher as soon as possible.
 We must have access to your source code, that must be private.
-Your source code (and tests) must pass all checks of luacheck without warnings or errors.
+Your source code (and tests) must pass all checks of ... without warnings or errors.
 Your tests must cover at least 80% of the source code, excluding test files.
 
 ***
