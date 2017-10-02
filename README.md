@@ -1,5 +1,5 @@
 Outils formels de modelisation @ University of Geneva
-
+** UNDER MODIFICATION
 This repository contains important information about this course. Do not forget to watch it as it will allow us to send notifications for events, such as new exercises, homework, slides or fixes.
 
 Important Information and Links
@@ -32,6 +32,8 @@ If for any reason you have trouble with the deadline, contact your teacher as so
 We must have access to your source code, that must be private.
 Your source code (and tests) must pass all checks of luacheck without warnings or errors.
 Your tests must cover at least 80% of the source code, excluding test files.
+
+***
 
 ## Getting started with Swift:
 
