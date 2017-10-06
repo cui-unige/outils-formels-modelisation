@@ -11,7 +11,7 @@ Les exercises le vendredi  12:15 - 14:00
 
 ## Work environment
 
-Ce cours nécessite l'environnement suivant:
+This course requires the following environment:
 
 * GitHub:
   A source code hosting platform that we will for the exercises and homework.
@@ -40,6 +40,15 @@ Proceed as follows:
 **NOTE**:
 Because GitHub does not support private forks (cloning this repository and recreating privately on your account is not a fork),
 we won't use private repositories for this course.
+
+### Merge updates from the upstream
+
+I'll be posting updates to this repository for new homeworks or fixed on existing files.
+To merge those updates, run the following command in your local repository (the one you cloned from your fork):
+
+```bash
+git pull https://github.com/cui-unige/outils-formels-modelisation.git master
+```
 
 ## Important note:
 
