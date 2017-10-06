@@ -3,6 +3,14 @@ import XCTest
 
 class TaskManagerLibTests: XCTestCase {
 
+    static let allTests = [
+        ("testCreateTask"  , testCreateTask),
+        ("testSpawnProcess", testSpawnProcess),
+        ("testExec"        , testExec),
+        ("testSuccess"     , testSuccess),
+        ("testFail"        , testFail),
+    ]
+
     func testCreateTask() {
         let taskManager = createTaskManager()
 
