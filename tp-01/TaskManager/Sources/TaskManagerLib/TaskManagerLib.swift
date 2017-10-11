@@ -40,6 +40,10 @@ public func createCorrectTaskManager() -> PTNet {
     let taskPool    = PTPlace(named: "taskPool")
     let processPool = PTPlace(named: "processPool")
     let inProgress  = PTPlace(named: "inProgress")
+    // On crée une nouvelle place appelée memory, qui vaudra 1 lorsque aucun couple (task, process)
+    // ne tourne, et 0 dans le cas contraire. Après un fail ou un success, on remettra cette place
+    // à 1. Cette place sera une precondition de exec et une postcondition de fail et success.
+    let memory = PTPlace(named: "memory")
 
     // Transitions
     let create      = PTTransition(
@@ -50,21 +54,25 @@ public func createCorrectTaskManager() -> PTNet {
         named          : "spawn",
         preconditions  : [],
         postconditions : [PTArc(place: processPool)])
+    //La postcondition de success est maintenant la place memory (comme expliqué plus haut)
     let success     = PTTransition(
         named          : "success",
         preconditions  : [PTArc(place: taskPool), PTArc(place: inProgress)],
-        postconditions : [])
+        postconditions : [PTArc(place: memory)])
+    //Une nouvelle precondition de exec : la place memory
     let exec       = PTTransition(
         named          : "exec",
-        preconditions  : [PTArc(place: taskPool), PTArc(place: processPool)],
+        preconditions  : [PTArc(place: taskPool), PTArc(place: processPool), PTArc(place: memory)],
         postconditions : [PTArc(place: taskPool), PTArc(place: inProgress)])
+    //La postcondition de fail est maintenant la place memory
     let fail        = PTTransition(
         named          : "fail",
         preconditions  : [PTArc(place: inProgress)],
-        postconditions : [])
+        postconditions : [PTArc(place: memory)])
 
     // P/T-net
+    //Dans notre return il faut également ajouter la nouvelle place définie plus haut : memory
     return PTNet(
-        places: [taskPool, processPool, inProgress],
+        places: [taskPool, processPool, inProgress, memory],
         transitions: [create, spawn, success, exec, fail])
 }
