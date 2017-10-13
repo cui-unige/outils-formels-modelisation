@@ -19,7 +19,7 @@ class SmokersLibTests: XCTestCase {
 
         // Make sure all requires transitions were created.
         for transitionName in ["tpt", "tpm", "ttm", "ts1", "ts2", "ts3", "tw1", "tw2", "tw3"] {
-            XCTAssertNotNil(model.places.first(where: { $0.name == transitionName }))
+            XCTAssertNotNil(model.transitions.first(where: { $0.name == transitionName }))
         }
     }
 
