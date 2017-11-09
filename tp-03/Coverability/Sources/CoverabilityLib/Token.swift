@@ -48,13 +48,32 @@ extension Dictionary where Key == PTPlace, Value == Token {
 
         var hasGreater = false
         for place in lhs.keys {
-            guard lhs[place]! <= rhs[place]! else { return false }
+            guard lhs[place]! >= rhs[place]! else { return false }
             if lhs[place]! > rhs[place]! {
                 hasGreater = true
             }
         }
 
         return hasGreater
+    }
+
+    public static func ==(lhs: Dictionary, rhs: Dictionary) -> Bool {
+        guard lhs.keys == rhs.keys else {
+            return false
+        }
+
+        for place in lhs.keys {
+            switch (lhs[place]!, rhs[place]!) {
+            case let (.some(x), .some(y)) where x == y:
+                continue
+            case (.omega, .omega):
+                continue
+            default:
+                return false
+            }
+        }
+
+        return true
     }
 
 }
