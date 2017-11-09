@@ -1,0 +1,91 @@
+\documentclass[a4paper, titlepage]{article}
+\usepackage[round, sort, numbers]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{color}
+\usepackage{framed}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{paralist}
+\usepackage{parskip}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage{titlesec}
+%\usepackage{ulem}
+
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\usetikzlibrary{arrows, automata, backgrounds, petri, positioning}
+\tikzstyle{place}=[circle, draw=blue!50, fill=blue!20, thick]
+\tikzstyle{transition}=[rectangle, draw=black!50, fill=black!20, thick, minimum width=5.5mm, minimum height=5.5mm]
+
+% define new commands for sets and tuple
+\newcommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}
+\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\card}[1]{\ensuremath{\left \vert #1 \right \vert }}
+
+\definecolor{lstbg}{rgb}{1,1,0.9}
+\lstset{basicstyle=\ttfamily, numberstyle=\tiny, breaklines=true, backgroundcolor=\color{lstbg}, frame=single}
+\lstset{language=C}
+
+\makeatletter
+\newcommand\deadline[1]{\def\@deadline{#1}}
+\newcommand\objective[1]{\def\@objective{#1}}
+\newcommand{\makecustomtitle}{%
+	\begin{center}
+		\huge\@title \\
+		[1ex]\small Dimitri Racordon, le \@date
+	\end{center}
+	\begin{framed}\@deadline\end{framed}
+	\begin{framed}\@objective\end{framed}
+}
+\makeatother
+
+\begin{document}
+
+\title{Outils formels de Modélisation \\ 3\textsuperscript{ème} Travail personnel}
+\author{Dimitri Racordon}
+\date{27.10.17}
+
+\deadline{
+\textbf{Date de rendu}: Jeudi 09.11.17 à 23h55 \\
+
+  Comme leur nom l'indique, ces travaux sont \emph{personnels}.
+  La copie est strictement interdite, et toutes similitudes entre deux rendus
+  seront santionnées par la note de 0.
+  Tout dépassement de la date et heure de rendu sera lourdement pénalisée.
+  Date et heure de rendu sont toujours données en heure locale de Genève.
+  Tout commit sur votre dépôt publié après la date de rendu sera ignoré.
+
+  Seule la branche \texttt{master} de votre dépôt sera prise en compte
+  lors de la correction.
+
+  Votre code doit être compilable en Swift 4.0, avec un compilateur officiel.
+  La note the 1 vous sera attribuée si votre code ne peut être compilé.
+}
+
+\objective{
+  Dans ce TP, vous allez écrire l'algorithme de création d'un graphe de marquage.
+}
+
+\makecustomtitle
+
+\section{Mise en place du TP}
+
+Forkez le dépôt https://github.com/cui-unige/outils-formels-modelisation.
+Vous travaillerez sur votre propre version du dépôt,
+et effectuerez tous vos commit sur ce dépôt-ci.
+
+Le projet pour ce TP se trouve dans le répertoire \texttt{tp-02}.
+
+\section{Construction du graphe de couverture}
+
+La méthode \texttt{PTNet.coverabilityGraph(from:)}
+(dans le fichier \texttt{PTNet+Extensions.swift})
+est supposée retourner le graphe de couverture d'un réseau Pétri,
+d'après un marquage initial donné.
+
+Ecrivez l'implémentation de cette fonction.
+
+\end{document}

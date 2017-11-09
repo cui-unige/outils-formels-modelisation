@@ -14,7 +14,13 @@ public class MarkingGraph {
 
 // Ex. 1: Mutual exclusion
 do {
-    // Write your code here ...
+    let m0 = MarkingGraph(marking: ["s0": 1, "s1": 0, "s2": 1, "s3": 0, "s4": 1])
+    let m1 = MarkingGraph(marking: ["s0": 0, "s1": 1, "s2": 0, "s3": 0, "s4": 1])
+    let m2 = MarkingGraph(marking: ["s0": 1, "s1": 0, "s2": 0, "s3": 1, "s4": 0])
+
+    m0.successors = ["t1": m1, "t3": m2]
+    m1.successors = ["t0": m0]
+    m2.successors = ["t2": m0]
 }
 
 // Ex. 2: PetriNet 1
