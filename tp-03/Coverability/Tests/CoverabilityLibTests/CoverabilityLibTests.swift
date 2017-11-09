@@ -2,7 +2,7 @@ import PetriKit
 import CoverabilityLib
 import XCTest
 
-class SmokersLibTests: XCTestCase {
+class CoverabilityLibTests: XCTestCase {
 
     static let allTests = [
         ("testBoundedGraph"  , testBoundedGraph  ),
