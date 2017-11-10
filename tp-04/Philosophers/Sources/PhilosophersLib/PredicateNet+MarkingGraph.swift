@@ -2,7 +2,45 @@ extension PredicateNet {
 
     /// Returns the marking graph of a bounded predicate net.
     public func markingGraph(from marking: MarkingType) -> PredicateMarkingNode<T>? {
+        // Write your code here ...
+
+        // Note that I created the two static methods `equals(_:_:)` and `greater(_:_:)` to help
+        // you compare predicate markings. You can use them as the following:
+        //
+        //     PredicateNet.equals(someMarking, someOtherMarking)
+        //     PredicateNet.greater(someMarking, someOtherMarking)
+        //
+        // You may use these methods to check if you've already visited a marking, or if the model
+        // is unbounded.
+
         return nil
+    }
+
+    // MARK: Internals
+
+    private static func equals(_ lhs: MarkingType, _ rhs: MarkingType) -> Bool {
+        guard lhs.keys == rhs.keys else { return false }
+        for (place, tokens) in lhs {
+            guard tokens.count == rhs[place]!.count else { return false }
+            for t in tokens {
+                guard rhs[place]!.contains(t) else { return false }
+            }
+        }
+        return true
+    }
+
+    private static func greater(_ lhs: MarkingType, _ rhs: MarkingType) -> Bool {
+        guard lhs.keys == rhs.keys else { return false }
+
+        var hasGreater = false
+        for (place, tokens) in lhs {
+            guard tokens.count >= rhs[place]!.count else { return false }
+            hasGreater = hasGreater || (tokens.count > rhs[place]!.count)
+            for t in rhs[place]! {
+                guard tokens.contains(t) else { return false }
+            }
+        }
+        return hasGreater
     }
 
 }
