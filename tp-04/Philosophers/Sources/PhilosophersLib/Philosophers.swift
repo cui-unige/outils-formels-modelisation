@@ -44,7 +44,7 @@ public func lockFreePhilosophers(n: Int = 3) -> PredicateNet<PhiloType> {
         guard case let .philosopher(philosopher) = bindind["p"]! else {
             fatalError()
         }
-        return .fork((philosopher < n) ? (philosopher + 1) : 0)
+        return .fork((philosopher < n - 1) ? (philosopher + 1) : 0)
     }
 
     let startEating = PredicateTransition<PhiloType>(
@@ -65,7 +65,7 @@ public func lockFreePhilosophers(n: Int = 3) -> PredicateNet<PhiloType> {
             }
 
             // Make sure the chosen forks are that of the philosopher.
-            return (fl == p) && (fr == ((p < n) ? (p + 1) : 0))
+            return (fl == p) && (fr == ((p < n - 1) ? (p + 1) : 0))
         }])
 
     let stopEating = PredicateTransition<PhiloType>(
@@ -102,7 +102,7 @@ public func lockablePhilosophers(n: Int = 3) -> PredicateNet<PhiloType> {
         guard case let .philosopher(philosopher) = bindind["p"]! else {
             fatalError()
         }
-        return .fork((philosopher < n) ? (philosopher + 1) : 0)
+        return .fork((philosopher < n - 1) ? (philosopher + 1) : 0)
     }
 
     let takeLeftFork = PredicateTransition<PhiloType>(
@@ -138,7 +138,7 @@ public func lockablePhilosophers(n: Int = 3) -> PredicateNet<PhiloType> {
             else {
                 return false
             }
-            return f == ((p < n) ? (p + 1) : 0)
+            return f == ((p < n - 1) ? (p + 1) : 0)
         }])
 
     let stopEating = PredicateTransition<PhiloType>(
