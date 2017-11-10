@@ -2,5 +2,6 @@
 import XCTest
 
 XCTMain([
-    testCase(PhilosophersLibTests.allTests),
+    testCase(PredicateNetTests.allTests),
+    testCase(PredicateMarkingGraphTests.allTests),
 ])

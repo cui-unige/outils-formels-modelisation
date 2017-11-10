@@ -1,8 +1,7 @@
-import PetriKit
 import PhilosophersLib
 import XCTest
 
-class PhilosophersLibTests: XCTestCase {
+class PredicateNetTests: XCTestCase {
 
     static let allTests = [
         ("testFireableBingings"         , testFireableBingings),
