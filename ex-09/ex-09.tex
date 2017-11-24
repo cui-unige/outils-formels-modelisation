@@ -1,0 +1,89 @@
+\documentclass[a4paper, titlepage]{article}
+\usepackage[round, sort, numbers]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{paralist}
+\usepackage{parskip}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage{titlesec}
+
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\usetikzlibrary{arrows, automata, backgrounds, petri, positioning}
+\tikzstyle{place}=[circle, draw=blue!50, fill=blue!20, thick]
+\tikzstyle{marking}=[circle, draw=blue!50, thick, align=center]
+\tikzstyle{transition}=[rectangle, draw=black!50, fill=black!20, thick]
+
+% define new commands for sets and tuple
+\newcommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}
+\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\card}[1]{\ensuremath{\left \vert #1 \right \vert }}
+
+\makeatletter
+\newcommand\objective[1]{\def\@objective{#1}}
+\newcommand{\makecustomtitle}{%
+	\begin{center}
+		\huge\@title \\
+		[1ex]\small Dimitri Racordon \\ \@date
+	\end{center}
+	\@objective
+}
+\makeatother
+
+\begin{document}
+
+  \title{Outils formels de Modélisation \\ 9\textsuperscript{ème} séance d'exercices}
+  \author{Dimitri Racordon}
+  \date{24.11.17}
+	\objective{Dans cette séance d'exercices, nous allons étudier les bases de la logique propositionnelle, notamment en nous intéressant aux équivalences sémantiques.}
+
+	\makecustomtitle
+
+  \section{Tables de vérité ($\bigstar$)}
+    Donnez les tables de vérité des formules logiques suivantes. Indiquez ensuite lesquelles de ces formules sont des tautologies.
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $\alpha \land \beta$
+        \item $\alpha \implies \lnot\beta$
+        \item $\alpha \land (\beta \lor \lnot\alpha)$
+        \item $\alpha \land (\beta \lor \gamma)$
+        \item $(\alpha \implies \beta) \lor (\alpha \lor \lnot\beta)$
+        \item $(\alpha \lor \beta) \implies (\alpha \lor \gamma)$
+      \end{enumerate}
+    \end{multicols}
+
+  \section{Transformations ($\bigstar\bigstar$)}
+    Transformez les formules logiques suivantes en forme négative (NNF), en forme conjonctive (CNF) et en forme disjonctive (DNF).
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $\lnot(\alpha \land (\beta \lor \gamma))$
+        \item $(\alpha \implies \beta) \lor \lnot(\alpha \land \gamma)$
+        \item $(\lnot\alpha \lor \beta \land \gamma) \land \alpha$
+      \end{enumerate}
+    \end{multicols}
+
+  \section{Equivalences logiques ($\bigstar\bigstar\bigstar\bigstar$)}
+    Démontrez les équivalences logiques suivantes.
+    \begin{enumerate}
+      \item $(\alpha \lor \beta) \land (\lnot\alpha \lor \gamma)
+              \equiv (\lnot\alpha \land \beta) \lor (\gamma \land (\alpha \lor \beta))$
+      \item $(\alpha \lor \beta) \implies \lnot\gamma
+              \equiv \lnot((\alpha \lor \gamma) \land (\beta \lor \gamma))$
+      \item $(\alpha \iff \lnot\beta) \land (\gamma \implies \alpha)
+              \equiv (\beta \land \lnot(\gamma \lor \alpha)) \lor (\alpha \land \lnot\beta)$
+    \end{enumerate}
+
+  \section{Exclusivité ($\bigstar\bigstar\bigstar$)}
+    Donnez une formule de logique propositionnelle équivalente à la ligne de code suivante,
+    écrite en Swift:
+    \begin{verbatim}
+      if(a != b) { c = true } else { c = false }
+    \end{verbatim}
+
+\end{document}
