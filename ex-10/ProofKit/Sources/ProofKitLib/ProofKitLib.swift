@@ -186,12 +186,12 @@ extension Formula: CustomStringConvertible {
 
 }
 
-struct Judgment {
+public struct Judgment {
 
-    let hypotheses : Set<Formula>
-    let conclusions: Set<Formula>
+    public let hypotheses : Set<Formula>
+    public let conclusions: Set<Formula>
 
-    var isProvable: Bool {
+    public var isProvable: Bool {
         let Γ = self.hypotheses
         let Δ = self.conclusions
 
@@ -262,7 +262,7 @@ struct Judgment {
 
 extension Judgment: CustomStringConvertible {
 
-    var description: String {
+    public var description: String {
         let Γ = self.hypotheses .map({ String(describing: $0) }).joined(separator: ",")
         let Δ = self.conclusions.map({ String(describing: $0) }).joined(separator: ",")
         return "\(Γ) ⊢ \(Δ)"
@@ -272,11 +272,11 @@ extension Judgment: CustomStringConvertible {
 
 extension Set where Element == Formula {
 
-    static func +(set: Set, formula: Formula) -> Set {
+    public static func +(set: Set, formula: Formula) -> Set {
         return set.union([formula])
     }
 
-    static func -(set: Set, formula: Formula) -> Set {
+    public static func -(set: Set, formula: Formula) -> Set {
         return set.filter({ $0 != formula })
     }
 
@@ -284,7 +284,7 @@ extension Set where Element == Formula {
 
 extension Formula {
 
-    static func |-(hypotheses: Formula, conclusions: Formula) -> Judgment {
+    public static func |-(hypotheses: Formula, conclusions: Formula) -> Judgment {
         return Judgment(hypotheses: [hypotheses], conclusions: [conclusions])
     }
 
