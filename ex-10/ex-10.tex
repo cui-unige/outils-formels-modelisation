@@ -1,0 +1,77 @@
+\documentclass[a4paper, titlepage]{article}
+\usepackage[round, sort, numbers]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{paralist}
+\usepackage{parskip}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage{titlesec}
+
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\usetikzlibrary{arrows, automata, backgrounds, petri, positioning}
+\tikzstyle{place}=[circle, draw=blue!50, fill=blue!20, thick]
+\tikzstyle{marking}=[circle, draw=blue!50, thick, align=center]
+\tikzstyle{transition}=[rectangle, draw=black!50, fill=black!20, thick]
+
+% define new commands for sets and tuple
+\newcommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}
+\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\card}[1]{\ensuremath{\left \vert #1 \right \vert }}
+
+\makeatletter
+\newcommand\objective[1]{\def\@objective{#1}}
+\newcommand{\makecustomtitle}{%
+	\begin{center}
+		\huge\@title \\
+		[1ex]\small Dimitri Racordon \\ \@date
+	\end{center}
+	\@objective
+}
+\makeatother
+
+\begin{document}
+
+  \title{Outils formels de Modélisation \\ 10\textsuperscript{ème} séance d'exercices}
+  \author{Dimitri Racordon}
+  \date{01.12.17}
+	\objective{
+    Dans cette séance d'exercices,
+    nous allons manipuler des preuves en utilisant la théorie des séquents.
+  }
+
+	\makecustomtitle
+
+  \section{Preuves par séquents ($\bigstar\bigstar$)}
+    En utilisant la méthode des séquents, prouvez les formules suivantes:
+    \begin{enumerate}
+      \item $A \land B \vdash A \vee B$
+      \item $A \vee B \vdash (A \land C) \vee (B \land C) \vee \neg C$
+      \item $A \Rightarrow B, A \Rightarrow C, B \Rightarrow D, C \Rightarrow D \vdash A \Rightarrow D$
+      \item $A \Rightarrow B, B \Rightarrow A \vdash A \Leftrightarrow B$
+    \end{enumerate}
+
+  \section{Fainéantise ($\bigstar\bigstar\bigstar$)}
+    Nous disposons des propositions suivantes:
+    \begin{compactitem}
+      \item S'il fait beau, on va à l'université.
+      \item S'il risque de pleuvoir, on ne va pas à l'université.
+      \item Si on n'est pas à la maison, on est à l'université.
+      \item Si on reste à la maison, on fait des exercices et on relit le cours.
+      \item Si le ciel est gris, il risque de pleuvoir.
+      \item Si on va à l'université, on fait des exercices et on est contents.
+      \item Soit il fait beau, soit le ciel est gris.
+    \end{compactitem}
+
+    Démontrez en utilisant des séquents que, dans un monde décrit par de telles affirmations,
+    on est condamné à toujours faire des exercices.
+    Commencez par les exprimer sous forme de formules propositionnelles,
+    créez un jugement approprié, puis démontrez-le.
+
+\end{document}
