@@ -1,0 +1,99 @@
+\documentclass[a4paper, titlepage]{article}
+\usepackage[round, sort, numbers]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{paralist}
+\usepackage{parskip}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage{titlesec}
+
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\usetikzlibrary{arrows, automata, backgrounds, petri, positioning}
+\tikzstyle{place}=[circle, draw=blue!50, fill=blue!20, thick]
+\tikzstyle{marking}=[circle, draw=blue!50, thick, align=center]
+\tikzstyle{transition}=[rectangle, draw=black!50, fill=black!20, thick]
+
+% define new commands for sets and tuple
+\newcommand{\setof}[1]{\ensuremath{\left \{ #1 \right \}}}
+\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\card}[1]{\ensuremath{\left \vert #1 \right \vert }}
+
+\definecolor{lstbg}{rgb}{1,1,0.9}
+\lstset{basicstyle=\ttfamily, numberstyle=\tiny, breaklines=true, backgroundcolor=\color{lstbg}, frame=single}
+\lstset{language=C}
+
+\makeatletter
+\newcommand\objective[1]{\def\@objective{#1}}
+\newcommand{\makecustomtitle}{%
+	\begin{center}
+		\huge\@title \\
+		[1ex]\small Dimitri Racordon \\ \@date
+	\end{center}
+	\@objective
+}
+\makeatother
+
+\begin{document}
+
+  \title{Outils formels de Modélisation \\ 11\textsuperscript{ème} séance d'exercices}
+  \author{Dimitri Racordon}
+  \date{08.12.17}
+	\objective{
+    Dans cette séance d'exercices, nous allons étudier la logique du premier ordre.
+    Nous tâcherons notamment de traduire des phrases d'un domaine externe à la logique
+    en formule du premier ordre, et inversément.
+  }
+
+	\makecustomtitle
+
+  \section{logic.translate.com?fr-fol ($\bigstar$)}
+    Traduisez les phrases suivantes en formules de logique du premier ordre.
+    Créez autant de prédicats et/ou de formules que nécessaire.
+    \begin{enumerate}
+      \item Il y a un assistant qui n'est pas une femme.
+      \item Tous les étudiants sont soit des hommes, soit des femmes.
+      \item Tous les étudiants qui étudient les méthodes formelles sont intelligents.
+      \item Aucun étudiant n'est meilleur que tous les autres étudiants.
+    \end{enumerate}
+
+  \section{logic.translate.com?fol-fr ($\bigstar\bigstar$)}
+    Traduisez les formules suivantes en phrases.
+    \begin{enumerate}
+      \item $\forall a, (Homme(a) \implies Barbe(a)) \land (Femme(a) \implies \lnot Barbe(a))$
+      \item $\exists a, \exists b, \exists c, Soeur(a,b) \land Soeur(b,c) \land Soeur(c,a)$
+      \item $\forall x, \forall y, BelleSoeur(x,y) \implies \exists z, Femme(x) \land Epouse(y,z) \land Soeur(x,z)$
+      \item $\forall x, \forall y, Enfant(x) \land Pokemon(y) \implies Aime(x,y)$
+    \end{enumerate}
+
+  \pagebreak
+
+  \section{Un peu de Swift ($\bigstar\bigstar\bigstar$)}
+    La logique du premier ordre permet exprime des formules sur des ensembles de tailles arbitraires,
+    éventuellement inifinies,
+    par l'utilisation du quantificateur existentiel ($\exists$) et universel ($\forall$).
+    En Swift, on peut traduire cela par l'utilisation de prédicats sur des séquences:
+
+    \begin{lstlisting}
+    func isWomanName(name: String) -> Bool {
+      switch name {
+      case "Aline"  : return true
+      case "Cynthia": return true
+      default       : return false
+      }
+    }
+
+    let people = ["Aline", "Bernard", "Cynthia"]
+    let thereAreWoman     = people.contains(isWoman)
+    let thereAreOnlyWoman = people.filter(isWoman).count == people.count
+    \end{lstlisting}
+
+    En partant de ce principe, écrivez en Swift les formules de logique des exercices 1 et 2.
+
+\end{document}
