@@ -83,6 +83,6 @@ https://swift.org/getting-started/
 
 Chaque examen dure 20 minutes, 2 questions sont selectionnées et 20 minutes de préparations sont autorisées.
 
-L'ordre de passage (1...n) est déterminé par la liste, l'heure de passage peut donc se calculer comme ceci:
+L'ordre de passage k dans (1...n) est déterminé par la liste, l'heure de passage peut donc se calculer comme ceci:
 
-Pour le matin 8h30+(n-1* 20'), pour l'ap-midi 13h30+(n-1* 20')
+Pour le matin 8h30+(k-1* 20'), pour l'ap-midi 13h30+(k-1* 20')
