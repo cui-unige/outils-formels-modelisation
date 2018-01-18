@@ -77,3 +77,12 @@ https://swift.org/getting-started/
 
 * Tutorial on Swift: https://kyouko-taiga.github.io/swift-thoughts/tutorial/
 * Petri net simulator: https://github.com/kyouko-taiga/PetriKit
+
+
+## Examen
+
+Chaque examen dure 20 minutes, 2 questions sont selectionnées et 20 minutes de préparations sont autorisées.
+
+L'ordre de passage (1...n) est déterminé par la liste, l'heure de passage peut donc se calculer comme ceci:
+
+Pour le matin 8h30+(n-1* 20'), pour l'ap-midi 13h30+(n-1* 20')
