@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Smokers",
     dependencies: [
-        .package(url: "https://github.com/kyouko-taiga/PetriKit.git", from: "1.0.0"),
+        .package(url: "https://github.com/kyouko-taiga/PetriKit.git", from: "2.0.0"),
     ],
     targets: [
         .target(
